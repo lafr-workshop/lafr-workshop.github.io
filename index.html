@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAFR – Learning and Formal Methods for Robotics | IROS 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --text: #1a2235;
+      --text-muted: #4a5a6e;
+      --accent: #1e5a8e;
+      --accent-light: #e3eef6;
+      --border: #d4dce8;
+      --card-bg: #fff;
+      --max-width: 960px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 18px;
+    }
+    /* ICLR-style hero: full-width artistic background, nav over hero, centered title block */
+    .hero {
+      width: 100%;
+      min-height: 420px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(15,25,35,0.72) 0%, rgba(20,35,45,0.68) 50%, rgba(15,30,40,0.78) 100%),
+                  url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1920px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg") center / cover no-repeat;
+    }
+    .hero-nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .hero-nav-center {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem 1.25rem;
+    }
+    .hero-nav .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .hero-nav .brand:hover { color: #fff; opacity: 0.9; }
+    .hero-nav .brand svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+    .hero-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.15rem 0.5rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0.4rem 0.75rem;
+      border-radius: 2px;
+    }
+    .hero-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.15); }
+    .hero-nav-links a.active { background: rgba(0,0,0,0.5); color: #fff; }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      color: #fff;
+    }
+    .hero .workshop-label {
+      font-size: 1.05rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 0 0 0.6rem 0;
+      color: #e6c84a;
+    }
+    .hero .title-rule {
+      width: 140px;
+      height: 1px;
+      background: rgba(200,220,240,0.6);
+      margin: 0 auto 0.9rem;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 3.75rem);
+      font-weight: 400;
+      margin: 0 0 0.6rem 0;
+      letter-spacing: -0.02em;
+      color: #fff;
+      line-height: 1.2;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    }
+    .hero .tagline {
+      font-size: 1.2rem;
+      margin: 0 0 0.9rem 0;
+      color: rgba(255,255,255,0.95);
+      font-weight: 400;
+    }
+    .hero .badge {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e6c84a;
+      letter-spacing: 0.02em;
+    }
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 2.5rem 0 1.1rem 0;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--accent);
+    }
+    h2.subsection {
+      font-size: 1.35rem;
+      margin-top: 1.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h3 { font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.5rem 0; }
+    p { margin: 0 0 1.1rem 0; }
+    ul { margin: 0 0 1.1rem 0; padding-left: 1.6rem; }
+    li { margin-bottom: 0.4rem; }
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+    .abstract {
+      background: var(--accent-light);
+      padding: 1.4rem 1.6rem;
+      border-radius: 8px;
+      margin: 1.2rem 0;
+      border-left: 4px solid var(--accent);
+    }
+    .scope-bullets {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+    .scope-bullets li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+    .scope-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    .corresponding-note { text-align: center; }
+    /* ICLR-style person card: photo + name + affiliation (large photos like ICLR World Models) */
+    .person-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.75rem;
+      margin: 1rem 0;
+    }
+    .person-card {
+      text-align: center;
+      background: var(--card-bg);
+      padding: 1.25rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s;
+    }
+    .person-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .person-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 38%;
+      margin: 0 auto 0.85rem;
+      display: block;
+      background: var(--accent-light);
+    }
+    .person-name {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      font-size: 1.05rem;
+    }
+    .person-name a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .person-name a:hover { color: var(--accent); text-decoration: underline; }
+    .person-affil {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .person-talk {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      line-height: 1.35;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+      .person-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+      .person-photo { width: 150px; height: 150px; }
+    }
+    .card {
+      background: var(--card-bg);
+      padding: 1.25rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .schedule-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .schedule-table th, .schedule-table td { padding: 0.6rem 0.85rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 1rem; }
+    .schedule-table th { font-weight: 600; color: var(--text-muted); font-size: 1rem; }
+    .schedule-table .time { white-space: nowrap; }
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 1rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    #schedule, #cfp, #cftalk, #speakers, #organizers, #submit { scroll-margin-top: 4rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav class="hero-nav">
+      <div class="hero-nav-center">
+        <div class="hero-nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="#schedule">Schedule &amp; Speakers</a>
+        <a href="#cfp">Call for Papers</a>
+        <a href="#cftalk">Call for Talk Proposals</a>
+        <a href="#organizers">Organizers</a>
+        <a href="#submit">Submit</a>
+        </div>
+      </div>
+    </nav>
+    <div class="hero-inner">
+      <div class="workshop-label">The Workshop on LAFR</div>
+      <div class="title-rule"></div>
+      <h1>Learning and Formal Methods for Robotics</h1>
+      <p class="tagline">Learning for formal methods · Learning with formal methods</p>
+      <span class="badge">IROS 2026</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Workshop Scope</h2>
+    <div class="abstract">
+      <p>Robots are increasingly powered by learned perception, prediction, and decision models. Recent progress in reinforcement learning and robotic foundation models has further amplified this trend. However, guaranteeing safety and verifying the behaviors of learned models is difficult, due to, for example, the use of deep neural networks and the potential for hallucinations. Reliable deployment of robots requires explicit guarantees about safety and task satisfaction. Formal methods—a set of rigorous techniques for specifying, analyzing, and verifying systems—offer a framework for considering such problems.</p>
+      <p>This workshop focuses on two complementary viewpoints at the interface of learning and formal methods: <strong>learning for formal methods</strong> and <strong>learning with formal methods</strong>. Learning for formal methods studies how data-driven techniques can provide the missing ingredients that formal synthesis and verification often assume, including specifications and constraints inferred from demonstrations, preferences, or language, as well as abstractions, uncertainty sets, and conservative models that enable provable reasoning. Learning with formal methods studies how formal tools can guide and constrain learning, for example, through specification-aware training, verification, and certification of learned components, and runtime monitoring and shielding.</p>
+      <p>We bring together researchers from various disciplines—including robot learning, formal methods, planning, controls, safety, and multi-robot systems—to share past work, recent advances, and open problems in this exciting research area. The workshop will consist of a diverse set of invited talks and poster sessions. We hope to identify new research directions, open problems, and interdisciplinary perspectives that bridge these two fields and lead to new advances in robotics.</p>
+    </div>
+
+    <p>The workshop is organized along two complementary directions:</p>
+    <ul class="scope-bullets">
+      <li><strong>Learning for formal methods:</strong> specification/constraint inference, learning abstractions and models, uncertainty descriptions for synthesis.</li>
+      <li><strong>Learning with formal methods:</strong> formally grounded learning objectives, verification and certification of learned components, runtime assurance (monitors, shields, fallback controllers).</li>
+    </ul>
+
+    <p>Topics of interest include, but are not limited to:</p>
+    <ul>
+      <li>Understanding specifications and constraints: learning from demonstrations, preferences, or language; learning abstractions (predicates, automata, contracts); learning models and uncertainty sets for synthesis.</li>
+      <li>World-model training and verification: specification-aware training; verification and certification of learned policies and components; formal runtime assurance.</li>
+      <li>World models in robotics: safe reinforcement learning, certifiable perception and prediction, verified learned components, multi-robot systems.</li>
+      <li>Benchmarks, datasets, and demonstrations for learning and formal methods in robotics.</li>
+    </ul>
+
+    <h2 id="speakers">Invited Speakers &amp; Panelist</h2>
+    <p><em>(acceptance order)</em></p>
+    <div class="person-grid">
+      <div class="person-card">
+        <img class="person-photo" src="https://glenchou.github.io/images/glen.png" alt="Glenn Chou" onerror="this.onerror=null;this.src='images/Glenn_Chou.svg'">
+        <div class="person-name"><a href="https://trustworthyrobotics.github.io/" target="_blank" rel="noopener">Glenn Chou</a></div>
+        <div class="person-affil">Georgia Tech</div>
+        <div class="person-talk">Planning Safely with Learned Dynamics Beyond the Training Data</div>
+      </div>
+      <div class="person-card">
+        <img class="person-photo" src="https://aeroastro.mit.edu/wp-content/uploads/2021/09/headshot-faculty-chuchu-fan091521-MIT-0024-aspect-ratio-575-575-576x576-c-default.jpg" alt="Chuchu Fan" onerror="this.onerror=null;this.src='images/Chuchu_Fan.svg'">
+        <div class="person-name"><a href="https://chuchu.mit.edu/" target="_blank" rel="noopener">Chuchu Fan</a></div>
+        <div class="person-affil">MIT</div>
+        <div class="person-talk">Runtime safety layers for learning-enabled autonomy</div>
+      </div>
+      <div class="person-card">
+        <img class="person-photo" src="https://ik.imagekit.io/mckelvey/faculty/Yiannis-Kantaros1.jpg?tr=w-322,h-280,fo-face,z-0.5,q-50,dpr-2" alt="Yiannis Kantaros" onerror="this.onerror=null;this.src='images/Yiannis_Kantaros.svg'">
+        <div class="person-name"><a href="https://sites.google.com/view/kantaros/" target="_blank" rel="noopener">Yiannis Kantaros</a></div>
+        <div class="person-affil">Washington University in St. Louis</div>
+        <div class="person-talk">Assured Perception-based Planning in Unknown Environments</div>
+      </div>
+      <div class="person-card">
+        <img class="person-photo" src="https://cs.cornell.edu/sites/default/files/styles/profile_hero/public/2025-08/hadas-kress-gazit.png" alt="Hadas Kress-Gazit" onerror="this.onerror=null;this.src='images/Hadas_Kress_Gazit.svg'">
+        <div class="person-name"><a href="https://www.mae.cornell.edu/faculty-directory/hadas-kress-gazit" target="_blank" rel="noopener">Hadas Kress-Gazit</a></div>
+        <div class="person-affil">Cornell University</div>
+        <div class="person-talk">Monitoring for Robot Foundation Models</div>
+      </div>
+      <div class="person-card">
+        <img class="person-photo" src="https://www.cs.toronto.edu/~sheila/McIlraith2.jpg" alt="Sheila McIlraith" onerror="this.onerror=null;this.src='images/Sheila_McIlraith.svg'">
+        <div class="person-name"><a href="https://www.cs.toronto.edu/~sheila/" target="_blank" rel="noopener">Sheila McIlraith</a></div>
+        <div class="person-affil">University of Toronto</div>
+        <div class="person-talk">Exploiting Formal Languages in Robot Policy Learning: Faster, Safer, and Better</div>
+      </div>
+      <div class="person-card">
+        <img class="person-photo" src="https://corallab.net/img/people/AhmedQ.jpg" alt="Ahmed Qureshi" onerror="this.onerror=null;this.src='images/Ahmed_Qureshi.svg'">
+        <div class="person-name"><a href="https://qureshiahmed.github.io/" target="_blank" rel="noopener">Ahmed Qureshi</a></div>
+        <div class="person-affil">Purdue University</div>
+        <div class="person-talk">Formal Specifications as Inductive Bias for Robot Policy Learning and Control</div>
+      </div>
+    </div>
+
+    <h2 id="organizers">Organizing Team</h2>
+    <div class="person-grid">
+      <div class="person-card">
+        <img class="person-photo" src="https://autonomy.oden.utexas.edu/sites/default/files/styles/utexas_image_style_500w_500h/public/2025-11/Oden_Profile_Photo_v2.jpg?itok=X6joiAFm" alt="Neel Bhatt" onerror="this.onerror=null;this.src='images/Neel_Bhatt.svg'">
+        <div class="person-name">Neel Bhatt</div>
+        <div class="person-affil">University of Texas at Austin</div>
+      </div>
+      <div class="person-card">
+        <img class="person-photo" src="https://jasonxyliu.github.io/img/profile_pic.jpg" alt="Jason Liu" onerror="this.onerror=null;this.src='images/Jason_Liu.svg'">
+        <div class="person-name">Jason Liu</div>
+        <div class="person-affil">MIT</div>
+      </div>
+      <div class="person-card">
+        <img class="person-photo" src="https://xushengluo92.github.io/images/xushengluo92.jpg" alt="Xusheng Luo" onerror="this.onerror=null;this.src='images/Xusheng_Luo.svg'">
+        <div class="person-name">Xusheng Luo</div>
+        <div class="person-affil">CMU</div>
+      </div>
+      <div class="person-card">
+        <img class="person-photo" src="https://engineering.tamu.edu/cse/_files/_images/_profile-images/Lyu-Yiwei-6Oct2025.jpg" alt="Yiwei Lyu" onerror="this.onerror=null;this.src='images/Yiwei_Lyu.svg'">
+        <div class="person-name">Yiwei Lyu *</div>
+        <div class="person-affil">Texas A&M</div>
+      </div>
+      <div class="person-card">
+        <img class="person-photo" src="https://huytrtran.github.io/assets/images/tran_huy170214-04-b.jpg" alt="Huy T. Tran" onerror="this.onerror=null;this.src='images/Huy_Tran.svg'">
+        <div class="person-name">Huy T. Tran *</div>
+        <div class="person-affil">University of Illinois Urbana-Champaign</div>
+      </div>
+      <div class="person-card">
+        <img class="person-photo" src="https://zack4417.github.io/img/user.jpg" alt="Lei Zheng" onerror="this.onerror=null;this.src='images/Lei_Zheng.svg'">
+        <div class="person-name">Lei Zheng</div>
+        <div class="person-affil">National University of Singapore</div>
+      </div>
+    </div>
+    <p class="corresponding-note"><small>* Corresponding organizers</small></p>
+
+    <h2 class="subsection">Advisory Board</h2>
+    <div class="person-grid">
+      <div class="person-card">
+        <img class="person-photo" src="https://aeroastro.mit.edu/wp-content/uploads/2024/05/0079_040623_AeroAstro_079-1-scaled-aspect-ratio-575-575-scaled-576x576-c-default.jpg" alt="Julie Shah" onerror="this.onerror=null;this.src='images/Julie_Shah.svg'">
+        <div class="person-name"><a href="https://interactive.mit.edu/" target="_blank" rel="noopener">Julie Shah</a></div>
+        <div class="person-affil">MIT</div>
+      </div>
+    </div>
+
+    <h2 id="schedule">Schedule &amp; Speakers</h2>
+    <p>September 27, 2026 · Pittsburgh, PA</p>
+    <table class="schedule-table">
+      <thead>
+        <tr><th class="time">Time</th><th>Activity</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="time">08:30 – 08:35</td><td>Introduction</td></tr>
+        <tr><td class="time">08:35 – 09:05</td><td>Invited talk 1: Ahmed Qureshi — Formal Specifications as Inductive Bias for Robot Policy Learning and Control</td></tr>
+        <tr><td class="time">09:05 – 09:35</td><td>Invited talk 2: Chuchu Fan — Runtime safety layers for learning-enabled autonomy</td></tr>
+        <tr><td class="time">09:35 – 10:05</td><td>Invited talk 3: Sheila McIlraith — Exploiting Formal Languages in Robot Policy Learning: Faster, Safer, and Better</td></tr>
+        <tr><td class="time">10:05 – 10:35</td><td>Invited talk 4: Hadas Kress-Gazit — Monitoring for Robot Foundation Models</td></tr>
+        <tr><td class="time">10:35 – 11:00</td><td>Poster session and coffee break</td></tr>
+        <tr><td class="time">11:00 – 11:30</td><td>Invited talk 5: Yiannis Kantaros — Assured Perception-based Planning in Unknown Environments</td></tr>
+        <tr><td class="time">11:30 – 12:00</td><td>Invited talk 6: Glenn Chou — Planning Safely with Learned Dynamics Beyond the Training Data</td></tr>
+        <tr><td class="time">12:00 – 12:30</td><td>Closing remarks and awards</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="cfp">Call for Papers</h2>
+    <p>We invite contributions centered around the following two perspectives:</p>
+    <ul>
+      <li><strong>Learning for formal methods:</strong> specification/constraint inference (from demos, feedback, language), learning abstractions and compositional interfaces (predicates, automata, contracts), and learning models and uncertainty descriptions for synthesis (calibration, conformal bounds, conservative dynamics/environment models).</li>
+      <li><strong>Learning with formal methods:</strong> formally grounded learning objectives (logic- or robustness-based losses, constrained learning/RL), verification and certification of learned policies and components (NN verification, certified robustness, barrier/reachability certificates), and formal runtime assurance (monitors, shields, fallback controllers, falsification and counterexample-guided data collection).</li>
+    </ul>
+    <p>A paper submission should be <strong>2 to 4 pages</strong> in length (excluding references). Submissions should concisely describe the core idea and results, highlight novelty, and clearly position the work within one or both workshop perspectives. All papers must be submitted in PDF format and follow the standard IEEE conference formatting guidelines.</p>
+    <p>Submissions will be reviewed by a Program Committee composed of the organizers, invited speakers, and additional experts. Accepted papers will be posted on the workshop website, and at least one author of each accepted paper will be invited to present in the poster session.</p>
+    <p><strong>Submission link:</strong> <a href="#submit">TBD — see Submit section</a></p>
+
+    <h2 id="cftalk">Call for Talk Proposals</h2>
+    <p>We invite junior researchers (close to completing their PhD or recent graduates) to share their PhD research and vision on learning + formal methods in a 20-minute talk.</p>
+    <p>Applicants must have either defended their PhD after May 2024 or be in their 3+ year of PhD study. Submit a talk proposal as an extended abstract of up to 2 pages (excluding references) summarizing PhD research on a topic of interest to the workshop. The abstract will be evaluated on motivation, problem clarity, alignment with the workshop, related work, technical contribution, and future directions.</p>
+    <p>One proposal will be selected for presentation; others may be considered for the poster session.</p>
+    <p><strong>Submission link:</strong> <a href="#submit">TBD — see Submit section</a></p>
+
+    <h2 id="submit">Submit</h2>
+    <p>Submission links for papers and talk proposals will be posted here.</p>
+
+    <footer class="footer">
+      <p><strong>Learning and Formal Methods for Robotics (LAFR)</strong> · IROS 2026 · Pittsburgh, PA</p>
+    </footer>
+  </main>
+</body>
+</html>

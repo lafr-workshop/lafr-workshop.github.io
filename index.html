@@ -190,6 +190,13 @@
       gap: 1.75rem;
       margin: 1rem 0;
     }
+    .person-grid.organizers-grid {
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      justify-items: stretch;
+    }
+    .person-card--lei {
+      grid-column: 2;
+    }
     .person-card {
       text-align: center;
       background: var(--card-bg);
@@ -352,7 +359,7 @@
     </div>
 
     <h2 id="organizers">Organizing Team</h2>
-    <div class="person-grid">
+    <div class="person-grid organizers-grid">
       <div class="person-card">
         <img class="person-photo" src="https://autonomy.oden.utexas.edu/sites/default/files/styles/utexas_image_style_500w_500h/public/2025-11/Oden_Profile_Photo_v2.jpg?itok=X6joiAFm" alt="Neel Bhatt" onerror="this.onerror=null;this.src='images/Neel_Bhatt.svg'">
         <div class="person-name">Neel Bhatt</div>
@@ -374,19 +381,19 @@
         <div class="person-affil">Texas A&M</div>
       </div>
       <div class="person-card">
+        <img class="person-photo" src="https://aeroastro.mit.edu/wp-content/uploads/2024/05/0079_040623_AeroAstro_079-1-scaled-aspect-ratio-575-575-scaled-576x576-c-default.jpg" alt="Julie Shah" onerror="this.onerror=null;this.src='images/Julie_Shah.svg'">
+        <div class="person-name"><a href="https://interactive.mit.edu/" target="_blank" rel="noopener">Julie Shah</a></div>
+        <div class="person-affil">MIT</div>
+      </div>
+      <div class="person-card">
         <img class="person-photo" src="https://huytrtran.github.io/assets/images/tran_huy170214-04-b.jpg" alt="Huy T. Tran" onerror="this.onerror=null;this.src='images/Huy_Tran.svg'">
         <div class="person-name">Huy T. Tran *</div>
         <div class="person-affil">University of Illinois Urbana-Champaign</div>
       </div>
-      <div class="person-card">
+      <div class="person-card person-card--lei">
         <img class="person-photo" src="https://zack4417.github.io/img/user.jpg" alt="Lei Zheng" onerror="this.onerror=null;this.src='images/Lei_Zheng.svg'">
         <div class="person-name">Lei Zheng</div>
         <div class="person-affil">National University of Singapore</div>
-      </div>
-      <div class="person-card">
-        <img class="person-photo" src="https://aeroastro.mit.edu/wp-content/uploads/2024/05/0079_040623_AeroAstro_079-1-scaled-aspect-ratio-575-575-scaled-576x576-c-default.jpg" alt="Julie Shah" onerror="this.onerror=null;this.src='images/Julie_Shah.svg'">
-        <div class="person-name"><a href="https://interactive.mit.edu/" target="_blank" rel="noopener">Julie Shah</a></div>
-        <div class="person-affil">MIT</div>
       </div>
     </div>
     <p class="corresponding-note"><small>* Corresponding organizers</small></p>
@@ -406,7 +413,8 @@
         <tr><td class="time">10:35 – 11:00</td><td>Poster session and coffee break</td></tr>
         <tr><td class="time">11:00 – 11:30</td><td>Invited talk 5: Yiannis Kantaros — Assured Perception-based Planning in Unknown Environments</td></tr>
         <tr><td class="time">11:30 – 12:00</td><td>Invited talk 6: Glenn Chou — Planning Safely with Learned Dynamics Beyond the Training Data</td></tr>
-        <tr><td class="time">12:00 – 12:30</td><td>Closing remarks and awards</td></tr>
+        <tr><td class="time">12:00 - 12:15</td><td>Junior research talk</td></tr>
+        <tr><td class="time">12:15 – 12:30</td><td>Closing remarks and awards</td></tr>
       </tbody>
     </table>
 
@@ -416,7 +424,7 @@
       <li><strong>Learning for formal methods:</strong> specification/constraint inference (from demos, feedback, language), learning abstractions and compositional interfaces (predicates, automata, contracts), and learning models and uncertainty descriptions for synthesis (calibration, conformal bounds, conservative dynamics/environment models).</li>
       <li><strong>Learning with formal methods:</strong> formally grounded learning objectives (logic- or robustness-based losses, constrained learning/RL), verification and certification of learned policies and components (NN verification, certified robustness, barrier/reachability certificates), and formal runtime assurance (monitors, shields, fallback controllers, falsification and counterexample-guided data collection).</li>
     </ul>
-    <p>A paper submission should be <strong>2 to 4 pages</strong> in length (excluding references). Submissions should concisely describe the core idea and results, highlight novelty, and clearly position the work within one or both workshop perspectives (learning for formal methods, learning with formal methods). All papers must be submitted in PDF format and follow the standard IEEE conference formatting guidelines (templates are available on the IEEE website).</p>
+    <p>A paper submission should be <strong>4-8 pages</strong> in length (including references). Submissions should concisely describe the core idea and results, highlight novelty, and clearly position the work within one or both workshop perspectives (learning for formal methods, learning with formal methods). All papers must be submitted in PDF format and follow the standard IEEE conference formatting guidelines (templates are available on the IEEE website).</p>
     <p>Submissions will be reviewed by a Program Committee composed of the organizers, invited speakers, and additional experts in the area. Reviews will consider the following criteria.</p>
     <ul>
       <li><strong>Relevance and positioning:</strong> Does the submission clearly connect to learning for formal methods (e.g., learning specifications, abstractions, models, uncertainty descriptions) and/or learning with formal methods (e.g., formally grounded learning objectives, certification, runtime assurance)?</li>
@@ -429,8 +437,8 @@
     <p><strong>Submission link:</strong> <a href="#submit">See Submit section</a></p>
 
     <h2 id="cftalk">Call for Talk Proposals</h2>
-    <p>We invite junior researchers (close to completing their PhD or recent graduates) to share their PhD research and vision on learning + formal methods in a 20-minute talk.</p>
-    <p>Applicants must have either defended their PhD after May 2024 or be in their 3+ year of PhD study. Submit a talk proposal as an extended abstract of up to 2 pages (excluding references) summarizing PhD research on a topic of interest to the workshop. The abstract will be evaluated on motivation, problem clarity, alignment with the workshop, related work, technical contribution, and future directions.</p>
+    <p>We invite junior researchers, who are either close to completing their PhD or are recent graduates, to share their PhD research work and research vision on learning + formal methods at our workshop as a 15-min talk.</p>
+    <p>Applicants must have either defended their PhD thesis after May 2024 or must be in their 3+ years of PhD study. Applicants are invited to submit a talk proposal in the form of an extended abstract of up to 2 pages (excluding references) summarizing their PhD research on a topic of interest to the workshop.</p>
     <p>One proposal will be selected for presentation; others may be considered for the poster session.</p>
     <p><strong>Submission link:</strong> <a href="#submit">TBD — see Submit section</a></p>
 

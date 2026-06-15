@@ -135,6 +135,13 @@
       color: #e6c84a;
       letter-spacing: 0.02em;
     }
+    .hero .hero-date {
+      margin-top: 0.35rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      letter-spacing: 0.03em;
+    }
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -257,10 +264,52 @@
       border-radius: 8px;
       border: 1px solid var(--border);
     }
-    .schedule-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-    .schedule-table th, .schedule-table td { padding: 0.6rem 0.85rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 1rem; }
-    .schedule-table th { font-weight: 600; color: var(--text-muted); font-size: 1rem; }
-    .schedule-table .time { white-space: nowrap; }
+    .schedule-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 1rem 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card-bg);
+      box-shadow: 0 6px 18px rgba(30,90,142,0.08);
+    }
+    .schedule-table th,
+    .schedule-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 1rem;
+      vertical-align: top;
+    }
+    .schedule-table th {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .schedule-table tbody tr:nth-child(even) {
+      background: #f8fbfe;
+    }
+    .schedule-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+    .schedule-table td.time {
+      white-space: nowrap;
+      color: var(--accent);
+      font-weight: 700;
+      width: 150px;
+    }
+    .schedule-table .highlight-row {
+      background: var(--accent-light) !important;
+    }
+    .schedule-table .highlight-row td {
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      font-weight: 600;
+    }
     .footer {
       margin-top: 3rem;
       padding-top: 1.5rem;
@@ -292,6 +341,7 @@
       <h1>Learning and Formal Methods for Robotics</h1>
       <p class="tagline">Learning for formal methods · Learning with formal methods</p>
       <span class="badge">IROS 2026</span>
+      <div class="hero-date">October 1, 2026 · Pittsburgh, PA</div>
     </div>
   </header>
 
@@ -399,22 +449,22 @@
     <p class="corresponding-note"><small>* Corresponding organizers</small></p>
 
     <h2 id="schedule">Schedule &amp; Speakers</h2>
-    <p>September 27, 2026 · Pittsburgh, PA</p>
+    <p>October 1, 2026 · Pittsburgh, PA</p>
     <table class="schedule-table">
       <thead>
         <tr><th class="time">Time</th><th>Activity</th></tr>
       </thead>
       <tbody>
-        <tr><td class="time">08:30 – 08:35</td><td>Introduction</td></tr>
-        <tr><td class="time">08:35 – 09:05</td><td>Invited talk 1: Ahmed Qureshi — Formal Specifications as Inductive Bias for Robot Policy Learning and Control</td></tr>
-        <tr><td class="time">09:05 – 09:35</td><td>Invited talk 2: Chuchu Fan — Runtime safety layers for learning-enabled autonomy</td></tr>
-        <tr><td class="time">09:35 – 10:05</td><td>Invited talk 3: Sheila McIlraith — Exploiting Formal Languages in Robot Policy Learning: Faster, Safer, and Better</td></tr>
-        <tr><td class="time">10:05 – 10:35</td><td>Invited talk 4: Hadas Kress-Gazit — Monitoring for Robot Foundation Models</td></tr>
-        <tr><td class="time">10:35 – 11:00</td><td>Poster session and coffee break</td></tr>
-        <tr><td class="time">11:00 – 11:30</td><td>Invited talk 5: Yiannis Kantaros — Assured Perception-based Planning in Unknown Environments</td></tr>
-        <tr><td class="time">11:30 – 12:00</td><td>Invited talk 6: Glenn Chou — Planning Safely with Learned Dynamics Beyond the Training Data</td></tr>
-        <tr><td class="time">12:00 - 12:15</td><td>Junior research talk</td></tr>
-        <tr><td class="time">12:15 – 12:30</td><td>Closing remarks and awards</td></tr>
+        <tr><td class="time">13:00 – 13:05</td><td>Introduction</td></tr>
+        <tr><td class="time">13:05 – 13:35</td><td>Invited talk 1: <strong>Ahmed Qureshi</strong> — Formal Specifications as Inductive Bias for Robot Policy Learning and Control</td></tr>
+        <tr><td class="time">13:35 – 14:05</td><td>Invited talk 2: <strong>Chuchu Fan</strong> — Runtime safety layers for learning-enabled autonomy</td></tr>
+        <tr><td class="time">14:05 – 14:35</td><td>Invited talk 3: <strong>Sheila McIlraith</strong> — Exploiting Formal Languages in Robot Policy Learning: Faster, Safer, and Better</td></tr>
+        <tr><td class="time">14:35 – 15:05</td><td>Invited talk 4: <strong>Hadas Kress-Gazit</strong> — Monitoring for Robot Foundation Models</td></tr>
+        <tr class="highlight-row"><td class="time">15:05 – 16:00</td><td>Poster session and coffee break</td></tr>
+        <tr><td class="time">16:00 – 16:30</td><td>Invited talk 5: <strong>Yiannis Kantaros</strong> — Assured Perception-based Planning in Unknown Environments</td></tr>
+        <tr><td class="time">16:30 – 17:00</td><td>Invited talk 6: <strong>Glenn Chou</strong> — Planning Safely with Learned Dynamics Beyond the Training Data</td></tr>
+        <tr><td class="time">17:00 – 17:15</td><td>Junior research talk</td></tr>
+        <tr><td class="time">17:15 – 17:30</td><td>Closing remarks and awards</td></tr>
       </tbody>
     </table>
 
@@ -434,16 +484,16 @@
       <li><strong>Insights and outlook:</strong> Does the paper surface limitations, open problems, or concrete research questions that can shape follow-on work by the community?</li>
     </ul>
     <p>Accepted papers will be posted on the workshop website, and at least one author of each accepted paper will be invited to present in the workshop poster session.</p>
-    <p><strong>Submission link:</strong> <a href="#submit">See Submit section</a></p>
+    <p><strong>Submission link:</strong> <a href="#submit">OpenReview portal coming soon</a></p>
 
     <h2 id="cftalk">Call for Talk Proposals</h2>
     <p>We invite junior researchers, who are either close to completing their PhD or are recent graduates, to share their PhD research work and research vision on learning + formal methods at our workshop as a 15-min talk.</p>
     <p>Applicants must have either defended their PhD thesis after May 2024 or must be in their 3+ years of PhD study. Applicants are invited to submit a talk proposal in the form of an extended abstract of up to 2 pages (excluding references) summarizing their PhD research on a topic of interest to the workshop.</p>
     <p>One proposal will be selected for presentation; others may be considered for the poster session.</p>
-    <p><strong>Submission link:</strong> <a href="#submit">TBD — see Submit section</a></p>
+    <p><strong>Submission link:</strong> <a href="#submit">OpenReview portal coming soon</a></p>
 
     <h2 id="submit">Submit</h2>
-    <p>Submission links for papers and talk proposals will be posted here.</p>
+    <p>Paper submissions and talk proposals will be handled through OpenReview. The submission portal will be posted here once available.</p>
 
     <footer class="footer">
       <p><strong>Learning and Formal Methods for Robotics (LAFR)</strong> · IROS 2026 · Pittsburgh, PA</p>

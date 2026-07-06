@@ -172,6 +172,17 @@
       margin: 1.2rem 0;
       border-left: 4px solid var(--accent);
     }
+    .deadline-box {
+      background: var(--accent-light);
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin: 0 0 1.25rem 0;
+      border-left: 4px solid var(--accent);
+      font-size: 1.05rem;
+    }
+    .deadline-box strong {
+      color: var(--accent);
+    }
     .scope-bullets {
       list-style: none;
       padding-left: 0;
@@ -318,7 +329,7 @@
       color: var(--text-muted);
       text-align: center;
     }
-    #schedule, #cfp, #cftalk, #speakers, #organizers, #submit { scroll-margin-top: 4rem; }
+    #schedule, #cfp, #cftalk, #speakers, #organizers { scroll-margin-top: 4rem; }
   </style>
 </head>
 <body>
@@ -331,7 +342,6 @@
         <a href="#cfp">Call for Papers</a>
         <a href="#cftalk">Call for Talk Proposals</a>
         <a href="#organizers">Organizers</a>
-        <a href="#submit">Submit</a>
         </div>
       </div>
     </nav>
@@ -469,6 +479,7 @@
     </table>
 
     <h2 id="cfp">Call for Papers</h2>
+    <div class="deadline-box"><strong>Submission deadline:</strong> August 20, 2026</div>
     <p>We invite contributions centered around the following two perspectives:</p>
     <ul>
       <li><strong>Learning for formal methods:</strong> specification/constraint inference (from demos, feedback, language), learning abstractions and compositional interfaces (predicates, automata, contracts), and learning models and uncertainty descriptions for synthesis (calibration, conformal bounds, conservative dynamics/environment models).</li>
@@ -484,16 +495,14 @@
       <li><strong>Insights and outlook:</strong> Does the paper surface limitations, open problems, or concrete research questions that can shape follow-on work by the community?</li>
     </ul>
     <p>Accepted papers will be posted on the workshop website, and at least one author of each accepted paper will be invited to present in the workshop poster session.</p>
-    <p><strong>Submission link:</strong> <a href="#submit">OpenReview portal coming soon</a></p>
+    <p><strong>Submission:</strong> Submit via <a href="https://openreview.net/group?id=IEEE.org/IROS/2026/Workshop/LAFR" target="_blank" rel="noopener">OpenReview</a>, selecting the <strong>Paper Submission</strong> track.</p>
 
     <h2 id="cftalk">Call for Talk Proposals</h2>
+    <div class="deadline-box"><strong>Submission deadline:</strong> August 20, 2026</div>
     <p>We invite junior researchers, who are either close to completing their PhD or are recent graduates, to share their PhD research work and research vision on learning + formal methods at our workshop as a 15-min talk.</p>
     <p>Applicants must have either defended their PhD thesis after May 2024 or must be in their 3+ years of PhD study. Applicants are invited to submit a talk proposal in the form of an extended abstract of up to 2 pages (excluding references) summarizing their PhD research on a topic of interest to the workshop.</p>
     <p>One proposal will be selected for presentation; others may be considered for the poster session.</p>
-    <p><strong>Submission link:</strong> <a href="#submit">OpenReview portal coming soon</a></p>
-
-    <h2 id="submit">Submit</h2>
-    <p>Paper submissions and talk proposals will be handled through OpenReview. The submission portal will be posted here once available.</p>
+    <p><strong>Submission:</strong> Submit via <a href="https://openreview.net/group?id=IEEE.org/IROS/2026/Workshop/LAFR" target="_blank" rel="noopener">OpenReview</a>, selecting the <strong>Talk Proposal Submission</strong> track.</p>
 
     <footer class="footer">
       <p><strong>Learning and Formal Methods for Robotics (LAFR)</strong> · IROS 2026 · Pittsburgh, PA</p>

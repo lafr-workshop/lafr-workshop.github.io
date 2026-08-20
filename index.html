@@ -212,6 +212,23 @@
       grid-template-columns: repeat(3, minmax(220px, 1fr));
       justify-items: stretch;
     }
+    .person-grid.speakers-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.75rem;
+    }
+    .person-grid.speakers-grid .person-card {
+      flex: 0 0 calc((100% - 3.5rem) / 3);
+      max-width: calc((100% - 3.5rem) / 3);
+      box-sizing: border-box;
+    }
+    @media (max-width: 640px) {
+      .person-grid.speakers-grid .person-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
     .person-card--lei {
       grid-column: 2;
     }
@@ -379,7 +396,7 @@
 
     <h2 id="speakers">Invited Speakers &amp; Panelist</h2>
     <p><em>(acceptance order)</em></p>
-    <div class="person-grid">
+    <div class="person-grid speakers-grid">
       <div class="person-card">
         <img class="person-photo" src="https://glenchou.github.io/images/glen.png" alt="Glenn Chou" onerror="this.onerror=null;this.src='images/Glenn_Chou.svg'">
         <div class="person-name"><a href="https://trustworthyrobotics.github.io/" target="_blank" rel="noopener">Glenn Chou</a></div>
@@ -397,12 +414,6 @@
         <div class="person-name"><a href="https://sites.google.com/view/kantaros/" target="_blank" rel="noopener">Yiannis Kantaros</a></div>
         <div class="person-affil">Washington University in St. Louis</div>
         <div class="person-talk">Assured Perception-based Planning in Unknown Environments</div>
-      </div>
-      <div class="person-card">
-        <img class="person-photo" src="https://cs.cornell.edu/sites/default/files/styles/profile_hero/public/2025-08/hadas-kress-gazit.png" alt="Hadas Kress-Gazit" onerror="this.onerror=null;this.src='images/Hadas_Kress_Gazit.svg'">
-        <div class="person-name"><a href="https://www.mae.cornell.edu/faculty-directory/hadas-kress-gazit" target="_blank" rel="noopener">Hadas Kress-Gazit</a></div>
-        <div class="person-affil">Cornell University</div>
-        <div class="person-talk">Monitoring for Robot Foundation Models</div>
       </div>
       <div class="person-card">
         <img class="person-photo" src="https://www.cs.toronto.edu/~sheila/McIlraith2.jpg" alt="Sheila McIlraith" onerror="this.onerror=null;this.src='images/Sheila_McIlraith.svg'">
@@ -423,7 +434,7 @@
       <div class="person-card">
         <img class="person-photo" src="https://autonomy.oden.utexas.edu/sites/default/files/styles/utexas_image_style_500w_500h/public/2025-11/Oden_Profile_Photo_v2.jpg?itok=X6joiAFm" alt="Neel Bhatt" onerror="this.onerror=null;this.src='images/Neel_Bhatt.svg'">
         <div class="person-name">Neel Bhatt</div>
-        <div class="person-affil">University of Texas at Austin</div>
+        <div class="person-affil">University of Texas at Dallas</div>
       </div>
       <div class="person-card">
         <img class="person-photo" src="https://jasonxyliu.github.io/img/profile_pic.jpg" alt="Jason Liu" onerror="this.onerror=null;this.src='images/Jason_Liu.svg'">
@@ -433,10 +444,10 @@
       <div class="person-card">
         <img class="person-photo" src="https://xushengluo92.github.io/images/xushengluo92.jpg" alt="Xusheng Luo" onerror="this.onerror=null;this.src='images/Xusheng_Luo.svg'">
         <div class="person-name">Xusheng Luo</div>
-        <div class="person-affil">CMU</div>
+        <div class="person-affil">North Carolina State University</div>
       </div>
       <div class="person-card">
-        <img class="person-photo" src="https://engineering.tamu.edu/cse/_files/_images/_profile-images/Lyu-Yiwei-6Oct2025.jpg" alt="Yiwei Lyu" onerror="this.onerror=null;this.src='images/Yiwei_Lyu.svg'">
+        <img class="person-photo" src="images/Yiwei_Lyu.jpg" alt="Yiwei Lyu" onerror="this.onerror=null;this.src='images/Yiwei_Lyu.svg'">
         <div class="person-name">Yiwei Lyu *</div>
         <div class="person-affil">Texas A&M</div>
       </div>
@@ -451,7 +462,7 @@
         <div class="person-affil">University of Illinois Urbana-Champaign</div>
       </div>
       <div class="person-card person-card--lei">
-        <img class="person-photo" src="https://zack4417.github.io/img/user.jpg" alt="Lei Zheng" onerror="this.onerror=null;this.src='images/Lei_Zheng.svg'">
+        <img class="person-photo" src="images/Lei_Zheng.png" alt="Lei Zheng" onerror="this.onerror=null;this.src='images/Lei_Zheng.svg'">
         <div class="person-name">Lei Zheng</div>
         <div class="person-affil">National University of Singapore</div>
       </div>
@@ -466,26 +477,27 @@
       </thead>
       <tbody>
         <tr><td class="time">13:00 – 13:05</td><td>Introduction</td></tr>
-        <tr><td class="time">13:05 – 13:35</td><td>Invited talk 1: <strong>Ahmed Qureshi</strong> — Formal Specifications as Inductive Bias for Robot Policy Learning and Control</td></tr>
-        <tr><td class="time">13:35 – 14:05</td><td>Invited talk 2: <strong>Chuchu Fan</strong> — Runtime safety layers for learning-enabled autonomy</td></tr>
-        <tr><td class="time">14:05 – 14:35</td><td>Invited talk 3: <strong>Sheila McIlraith</strong> — Exploiting Formal Languages in Robot Policy Learning: Faster, Safer, and Better</td></tr>
-        <tr><td class="time">14:35 – 15:05</td><td>Invited talk 4: <strong>Hadas Kress-Gazit</strong> — Monitoring for Robot Foundation Models</td></tr>
-        <tr class="highlight-row"><td class="time">15:05 – 16:00</td><td>Poster session and coffee break</td></tr>
-        <tr><td class="time">16:00 – 16:30</td><td>Invited talk 5: <strong>Yiannis Kantaros</strong> — Assured Perception-based Planning in Unknown Environments</td></tr>
-        <tr><td class="time">16:30 – 17:00</td><td>Invited talk 6: <strong>Glenn Chou</strong> — Planning Safely with Learned Dynamics Beyond the Training Data</td></tr>
-        <tr><td class="time">17:00 – 17:15</td><td>Junior research talk</td></tr>
-        <tr><td class="time">17:15 – 17:30</td><td>Closing remarks and awards</td></tr>
+        <tr><td class="time">13:05 – 13:40</td><td>Invited talk 1: <strong>Ahmed Qureshi</strong> — Formal Specifications as Inductive Bias for Robot Policy Learning and Control</td></tr>
+        <tr><td class="time">13:40 – 14:15</td><td>Invited talk 2: <strong>Chuchu Fan</strong> — Runtime safety layers for learning-enabled autonomy</td></tr>
+        <tr><td class="time">14:15 – 14:50</td><td>Invited talk 3: <strong>Sheila McIlraith</strong> — Exploiting Formal Languages in Robot Policy Learning: Faster, Safer, and Better</td></tr>
+        <tr><td class="time">14:50 – 15:10</td><td>Junior research talk</td></tr>
+        <tr><td class="time">15:10 – 15:15</td><td>Break comments</td></tr>
+        <tr class="highlight-row"><td class="time">15:15 – 16:10</td><td>Poster session and coffee break</td></tr>
+        <tr><td class="time">16:10 – 16:45</td><td>Invited talk 4: <strong>Yiannis Kantaros</strong> — Assured Perception-based Planning in Unknown Environments</td></tr>
+        <tr><td class="time">16:45 – 17:20</td><td>Invited talk 5: <strong>Glenn Chou</strong> — Planning Safely with Learned Dynamics Beyond the Training Data</td></tr>
+        <tr><td class="time">17:20 – 17:30</td><td>Closing remarks and awards</td></tr>
       </tbody>
     </table>
 
     <h2 id="cfp">Call for Papers</h2>
-    <div class="deadline-box"><strong>Submission deadline:</strong> August 20, 2026</div>
+    <div class="deadline-box"><strong>Submission deadline:</strong> <s>August 20, 2026</s> extended to <strong>August 31, 2026 (AoE)</strong></div>
     <p>We invite contributions centered around the following two perspectives:</p>
     <ul>
       <li><strong>Learning for formal methods:</strong> specification/constraint inference (from demos, feedback, language), learning abstractions and compositional interfaces (predicates, automata, contracts), and learning models and uncertainty descriptions for synthesis (calibration, conformal bounds, conservative dynamics/environment models).</li>
       <li><strong>Learning with formal methods:</strong> formally grounded learning objectives (logic- or robustness-based losses, constrained learning/RL), verification and certification of learned policies and components (NN verification, certified robustness, barrier/reachability certificates), and formal runtime assurance (monitors, shields, fallback controllers, falsification and counterexample-guided data collection).</li>
     </ul>
-    <p>A paper submission should be <strong>4-8 pages</strong> in length (including references). Submissions should concisely describe the core idea and results, highlight novelty, and clearly position the work within one or both workshop perspectives (learning for formal methods, learning with formal methods). All papers must be submitted in PDF format and follow the standard IEEE conference formatting guidelines (templates are available on the IEEE website).</p>
+    <p>A paper submission should be <strong>4–8 pages</strong> in length (including references). Submissions should concisely describe the core idea and results, highlight novelty, and clearly position the work within one or both workshop perspectives (learning for formal methods, learning with formal methods). All papers must be submitted in PDF format and follow the standard IEEE conference formatting guidelines (templates are available on the IEEE website).</p>
+    <p>The workshop is non-archival and dual submissions are allowed. Submissions may present preliminary and/or completed work. Reviewing is single-blind.</p>
     <p>Submissions will be reviewed by a Program Committee composed of the organizers, invited speakers, and additional experts in the area. Reviews will consider the following criteria.</p>
     <ul>
       <li><strong>Relevance and positioning:</strong> Does the submission clearly connect to learning for formal methods (e.g., learning specifications, abstractions, models, uncertainty descriptions) and/or learning with formal methods (e.g., formally grounded learning objectives, certification, runtime assurance)?</li>
@@ -498,9 +510,9 @@
     <p><strong>Submission:</strong> Submit via <a href="https://openreview.net/group?id=IEEE.org/IROS/2026/Workshop/LAFR" target="_blank" rel="noopener">OpenReview</a>, selecting the <strong>Paper Submission</strong> track.</p>
 
     <h2 id="cftalk">Call for Talk Proposals</h2>
-    <div class="deadline-box"><strong>Submission deadline:</strong> August 20, 2026</div>
+    <div class="deadline-box"><strong>Submission deadline:</strong> <s>August 20, 2026</s> extended to <strong>August 31, 2026 (AoE)</strong></div>
     <p>We invite junior researchers, who are either close to completing their PhD or are recent graduates, to share their PhD research work and research vision on learning + formal methods at our workshop as a 15-min talk.</p>
-    <p>Applicants must have either defended their PhD thesis after May 2024 or must be in their 3+ years of PhD study. Applicants are invited to submit a talk proposal in the form of an extended abstract of up to 2 pages (excluding references) summarizing their PhD research on a topic of interest to the workshop.</p>
+    <p>Applicants must have either defended their PhD thesis after May 2024 or must be in their 3+ years of PhD study. Applicants are invited to submit a talk proposal in the form of an extended abstract of up to 2 pages (excluding references) summarizing their PhD research on a topic of interest to the workshop. The workshop is non-archival and dual submissions are allowed. Reviewing is single-blind.</p>
     <p>One proposal will be selected for presentation; others may be considered for the poster session.</p>
     <p><strong>Submission:</strong> Submit via <a href="https://openreview.net/group?id=IEEE.org/IROS/2026/Workshop/LAFR" target="_blank" rel="noopener">OpenReview</a>, selecting the <strong>Talk Proposal Submission</strong> track.</p>
 

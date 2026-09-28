@@ -346,7 +346,39 @@
       color: var(--text-muted);
       text-align: center;
     }
-    #schedule, #cfp, #cftalk, #speakers, #organizers { scroll-margin-top: 4rem; }
+
+    .paper-list {
+      list-style: decimal;
+      padding-left: 1.4rem;
+      margin: 1rem 0 2rem;
+    }
+    .paper-list li {
+      margin-bottom: 1rem;
+      padding-left: 0.35rem;
+    }
+    .paper-list .paper-title {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .paper-list .paper-authors {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .paper-list .paper-tag {
+      display: inline-block;
+      margin-left: 0.4rem;
+      padding: 0.1rem 0.45rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 4px;
+      vertical-align: middle;
+    }
+    #schedule, #cfp, #cftalk, #speakers, #organizers, #papers { scroll-margin-top: 4rem; }
   </style>
 </head>
 <body>
@@ -356,6 +388,7 @@
         <div class="hero-nav-links">
         <a href="#" class="active">Home</a>
         <a href="#schedule">Schedule &amp; Speakers</a>
+        <a href="#papers">Accepted Papers</a>
         <a href="#cfp">Call for Papers</a>
         <a href="#cftalk">Call for Talk Proposals</a>
         <a href="#organizers">Organizers</a>
@@ -413,7 +446,7 @@
         <img class="person-photo" src="https://ik.imagekit.io/mckelvey/faculty/Yiannis-Kantaros1.jpg?tr=w-322,h-280,fo-face,z-0.5,q-50,dpr-2" alt="Yiannis Kantaros" onerror="this.onerror=null;this.src='images/Yiannis_Kantaros.svg'">
         <div class="person-name"><a href="https://sites.google.com/view/kantaros/" target="_blank" rel="noopener">Yiannis Kantaros</a></div>
         <div class="person-affil">Washington University in St. Louis</div>
-        <div class="person-talk">Assured Perception-based Planning in Unknown Environments</div>
+        <div class="person-talk">Assured Language-driven Autonomy: Uncertainty-aware Translation of Natural Language to Formal Specifications</div>
       </div>
       <div class="person-card">
         <img class="person-photo" src="https://www.cs.toronto.edu/~sheila/McIlraith2.jpg" alt="Sheila McIlraith" onerror="this.onerror=null;this.src='images/Sheila_McIlraith.svg'">
@@ -477,16 +510,99 @@
       </thead>
       <tbody>
         <tr><td class="time">13:30 – 13:35</td><td>Introduction</td></tr>
-        <tr><td class="time">13:35 – 14:05</td><td>Invited talk 1: <strong>Ahmed Qureshi</strong> — Formal Specifications as Inductive Bias for Robot Policy Learning and Control</td></tr>
-        <tr><td class="time">14:05 – 14:35</td><td>Invited talk 2: <strong>Chuchu Fan</strong> — Runtime safety layers for learning-enabled autonomy</td></tr>
+        <tr><td class="time">13:35 – 13:55</td><td>Invited talk 1: <strong>Ahmed Qureshi</strong> — Formal Specifications as Inductive Bias for Robot Policy Learning and Control</td></tr>
+        <tr><td class="time">13:55 – 14:15</td><td>Invited talk 2: <strong>Chuchu Fan</strong> — Runtime safety layers for learning-enabled autonomy</td></tr>
+        <tr><td class="time">14:15 – 14:35</td><td>Junior research talk 1: <strong>Yuwei Wu</strong> — Abstractions for Learning and Formal Reasoning in Trustworthy Robot Autonomy</td></tr>
         <tr><td class="time">14:35 – 15:05</td><td>Invited talk 3: <strong>Sheila McIlraith</strong> — Exploiting Formal Languages in Robot Policy Learning: Faster, Safer, and Better</td></tr>
-        <tr><td class="time">15:05 – 15:25</td><td>Junior research talk</td></tr>
+        <tr><td class="time">15:05 – 15:25</td><td>Junior research talk 2: <strong>Disha Kamale</strong> — Closing the Abstraction Gap: Adaptive Abstractions for Provably Safe Robot Planning</td></tr>
         <tr class="highlight-row"><td class="time">15:25 – 16:20</td><td>Poster session and coffee break</td></tr>
-        <tr><td class="time">16:20 – 16:50</td><td>Invited talk 4: <strong>Yiannis Kantaros</strong> — Assured Perception-based Planning in Unknown Environments</td></tr>
+        <tr><td class="time">16:20 – 16:50</td><td>Invited talk 4: <strong>Yiannis Kantaros</strong> — Assured Language-driven Autonomy: Uncertainty-aware Translation of Natural Language to Formal Specifications</td></tr>
         <tr><td class="time">16:50 – 17:20</td><td>Invited talk 5: <strong>Glenn Chou</strong> — Planning Safely with Learned Dynamics Beyond the Training Data</td></tr>
         <tr><td class="time">17:20 – 17:30</td><td>Closing remarks and awards</td></tr>
       </tbody>
     </table>
+
+    <h2 id="papers">Accepted Papers</h2>
+    <p>The following papers were accepted to the workshop.</p>
+    <ol class="paper-list">
+      <li>
+        <span class="paper-title">Is Your Safe Controller Actually Safe? A Critical Review of CBF Tautologies and Hidden Assumptions</span>
+        <div class="paper-authors">Taekyung Kim</div>
+      </li>
+      <li>
+        <span class="paper-title">The Hidden Alphabet of Robot Tasks: A Partition-Lattice Theory of Identifiability and Safe Interventions</span>
+        <div class="paper-authors">Manoj Saravanan</div>
+      </li>
+      <li>
+        <span class="paper-title">A Robot Can Learn Only What It Can Discriminate: Automata–Chernoff Duality and Instance-Optimal Identification of Temporal Objectives</span>
+        <div class="paper-authors">Manoj Saravanan</div>
+      </li>
+      <li>
+        <span class="paper-title">Withdrawal Constrained Transfer for Revising Rollout Support in World Model Planning</span>
+        <div class="paper-authors">Weichun Tai, Yih Ping Luh, Shana Smith</div>
+      </li>
+      <li>
+        <span class="paper-title">From Emergent Messages to Formal Interfaces: A Finite-Sample Study of Communication-Conditioned Behavioral Contracts</span>
+        <div class="paper-authors">Ahmad Farooq, Kamran Iqbal</div>
+      </li>
+      <li>
+        <span class="paper-title">GRAND: Guidance, Rebalancing, and Assignment for Networked Dispatch in Multi-Agent Path Finding</span>
+        <div class="paper-authors">Johannes Gaber, Meshal Alharbi, Daniele Gammelli, et al.</div>
+      </li>
+      <li>
+        <span class="paper-title">Learning Object-Centric Barrier Functions for Contact-Rich Interaction in Clutter</span>
+        <div class="paper-authors">Haixin Jin, Nikhil Uday Shinde, Soofiyan Atar, Hongzhan Yu, Dylan Hirsch, Sicun Gao, Michael C. Yip, Sylvia Lee Herbert, Simon Stepputtis</div>
+      </li>
+      <li>
+        <span class="paper-title">From LLM-Generated Specifications to Learned Quadruped Locomotion</span>
+        <div class="paper-authors">Merve Atasever, Keyan Azbijari, Cagan Bakirci, Tolga Izdas, Richard Yang, Erdem Biyik, Jyotirmoy V. Deshmukh, et al.</div>
+      </li>
+      <li>
+        <span class="paper-title">Learn Where Outcomes Diverge: Efficient VLA RL via Probabilistic Chunk Masking</span>
+        <div class="paper-authors">Vaidehi Bagaria, Nikshep Grampurohit, Pulkit Verma</div>
+      </li>
+      <li>
+        <span class="paper-title">Abstractions for Learning and Formal Reasoning in Trustworthy Robot Autonomy</span>
+        <div class="paper-authors">Yuwei Wu</div>
+      </li>
+      <li>
+        <span class="paper-title">ASPIRE: Decoupling Perception and Reasoning in Vision-Language Models with Answer Set Programming</span>
+        <div class="paper-authors">Michal P. Podolinsky, Yunhao Yang, Neel P. Bhatt, Ufuk Topcu, et al.</div>
+      </li>
+      <li>
+        <span class="paper-title">Logic-VLA: A Temporal Logic Conditioned Vision-Language-Action Model</span>
+        <div class="paper-authors">Celina Shiyu Wang, Yiqi Zhao, Junjie Ye, Yue Wang, Jyotirmoy V. Deshmukh</div>
+      </li>
+      <li>
+        <span class="paper-title">PDDL-ART: Autonomous Symbolic Abstraction From Demonstration For Long-Horizon Robotic Manipulation Using Vision-Language Models</span>
+        <div class="paper-authors">Disha Kamale, Dmitry Berenson</div>
+      </li>
+      <li>
+        <span class="paper-title">Runtime-Constrained Residual Execution for Sequential Dual-Sided Grasping</span>
+        <div class="paper-authors">Zhangliang Gao, Haoran Li, Zhihe Zhou</div>
+      </li>
+      <li>
+        <span class="paper-title">IFG: Internet-Scale Guidance for Functional Grasping Generation</span>
+        <div class="paper-authors">Muxin Liu, Mingxuan Li, Kenneth Shaw, Deepak Pathak</div>
+      </li>
+      <li>
+        <span class="paper-title">Closing the Abstraction Gap: Adaptive Abstractions for Provably Safe Robot Planning</span>
+        <span class="paper-tag">Oral</span>
+        <div class="paper-authors">Disha Kamale</div>
+      </li>
+      <li>
+        <span class="paper-title">Design and Learning of Spatiotemporal Metrics for Trajectory Optimization in Dynamic Environments</span>
+        <div class="paper-authors">Yuwei Wu, Tianpeng Zhang, Ji Yin, Vijay Kumar, et al.</div>
+      </li>
+      <li>
+        <span class="paper-title">Inference-Time Robot Behavior Steering through Physically-Aware Reconfiguration of Task-Structure</span>
+        <div class="paper-authors">Yiyuan Pan, Hanjiang Hu, Shangtao Li, Xusheng Luo</div>
+      </li>
+      <li>
+        <span class="paper-title">Discovering Formal Options with Contrastive Policy Composition</span>
+        <div class="paper-authors">Mikihisa Yuasa, Ramavarapu S. Sreenivas, Huy T. Tran</div>
+      </li>
+    </ol>
 
     <h2 id="cfp">Call for Papers</h2>
     <div class="deadline-box"><strong>Submission deadline:</strong> <s>August 31, 2026 (AoE)</s> extended to <strong>September 1, 2026 (noon CST)</strong> to accomodate for openreview early closure</div>
